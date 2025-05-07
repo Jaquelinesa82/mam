@@ -7,7 +7,18 @@ from professionals.models import Professionals
 
 @api_view(['GET'])
 def list_appointments(request):
-    appointments = Appointment.objects.all()
+    professional_id = request.query_params.get('professional_id')
+    
+    if professional_id:
+        try:
+            professional = Professionals.objects.get(pk=professional_id)
+        except Professionals.DoesNotExist:
+            return Response({'detail': 'Professional not found'}, status=status.HTTP_404_NOT_FOUND)
+        
+        appointments = Appointment.objects.filter(professional=professional)
+    else:
+        appointments = Appointment.objects.all()
+        
     serializer = AppointmentSerializer(appointments, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
     
