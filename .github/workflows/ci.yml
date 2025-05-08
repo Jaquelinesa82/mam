@@ -26,7 +26,7 @@ jobs:
       POSTGRES_DB: db_mam
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      DJANGO_SECRET_KEY: testing-secret-key
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
       DEBUG: False
       ALLOWED_HOSTS: 127.0.0.1,localhost
       DATABASE_URL: postgres://postgres:postgres@localhost:5432/db_mam
@@ -48,6 +48,9 @@ jobs:
         run: |
           poetry config virtualenvs.create false
           poetry install
+      
+      - name: Print SECRET_KEY (Debugging)
+        run: echo "SECRET_KEY is $SECRET_KEY" 
 
       - name: Run migrations
         run: |
