@@ -10,7 +10,7 @@ def test_register_professional_return_201_created():
     name = faker.name()
     profession = faker.job()
     address = faker.address()
-    contact = faker.phone_number()
+    contact = faker.numerify('##########')
 
     payload = {
         'name' : name,

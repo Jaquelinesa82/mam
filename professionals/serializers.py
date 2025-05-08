@@ -23,5 +23,5 @@ class ProfessionalSerializer(serializers.ModelSerializer):
         if not cleaned.isdigit():
             raise serializers.ValidationError('O contato deve conter apenas números')
         if len(cleaned) < 10:
-            raise serializers.ValidateError('O contato deve ter pelo menos 10 dígitos.')
+            raise serializers.ValidationError('O contato deve ter pelo menos 10 dígitos.')
         return cleaned
