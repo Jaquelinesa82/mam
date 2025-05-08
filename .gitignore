@@ -3,6 +3,11 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Ignorar arquivos temporários e de cache
+*.pyc
+__pycache__
+*.pyo
+
 # C extensions
 *.so
 
@@ -172,3 +177,6 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Ignorar o diretório do Docker
+.docker

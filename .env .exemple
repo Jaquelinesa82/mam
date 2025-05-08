@@ -1,0 +1,7 @@
+# Segurança
+SECRET_KEY=Chave secreta do Django
+DEBUG=Ativar/Desativar debug (True/False)
+ALLOWED_HOSTS=Hosts permitidos (ex: localhost, 127.0.0.1)
+
+# Banco de Dados PostgreSQL
+DATABASE_URL=acesso do postgres
